@@ -48,7 +48,7 @@ def powerset(myset):
   return sets
 
 items = powerset(
-  ['r', 'u', 'p', 'e', 's', 'h', 'a', 'c', 'h', 'y']
+  ['i', 't']
 )
 results = []
 print(items)

@@ -1,4 +1,7 @@
 import math
+import random
+from colorsys import hsv_to_rgb
+
 
 class Circle:
     """
@@ -139,11 +142,20 @@ def printsvg(c, pos, file):
         file (file): The file to print to.
     """
 
-    file.write('<circle cx="%f" cy="%f" r="%f" fill="white" stroke="black" />\n' % (zoom * pos[0], zoom * pos[1], zoom * c.radius))
+    # Generate a random color for the circle
+    hue = random.uniform(10, 20)
+    saturation = random.uniform(0, 1)
+    value = random.uniform(0.6, 1)
+    r, g, b = [int(255 * i) for i in hsv_to_rgb(hue, saturation, value)]
+    color = f"rgb({r},{g},{b})"
+    
+    file.write('<circle cx="%f" cy="%f" r="%f" fill="%s" stroke="black" />\n' % (zoom * pos[0], zoom * pos[1], zoom * c.radius, color))
+    
     for p in c.contents:
         printsvg(p.circle, (pos[0] + p.pos[0], pos[1] + p.pos[1]), file)
 
-zoom = 20
+
+zoom = 5
 c = make(10)
 
 size = zoom * c.radius * 2
