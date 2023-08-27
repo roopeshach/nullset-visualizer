@@ -22,10 +22,9 @@ The script generates intricate patterns of nested circles. You can find an examp
 
 ## Author
 
-[Your Name]
+roopeshach
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
 
----
